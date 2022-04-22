@@ -5,34 +5,34 @@
     padding: 1rem;
     position: absolute;
     margin: auto;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     border-radius: 6px;
-    background-color: #c0eca0;
+    background-color: #ffa333;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: white
-  }
-  
-  .auth h1 {
+    color: white;
+}
+
+.auth h1 {
     text-align: center;
     color: white;
-  }
-  
-  .control {
+}
+
+.control {
     margin-bottom: 0.5rem;
-  }
-  
-  .control label {
+}
+
+.control label {
     display: block;
     color: white;
     font-weight: bold;
     margin-bottom: 0.5rem;
-  }
-  
-  .control input {
+}
+
+.control input {
     font: inherit;
     background-color: #f1e1fc;
     color: #122dda;
@@ -41,16 +41,16 @@
     width: 100%;
     text-align: left;
     padding: 0.25rem;
-  }
-  
-  .actions {
+}
+
+.actions {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .actions button {
+}
+
+.actions button {
     cursor: pointer;
     font: inherit;
     color: white;
@@ -58,12 +58,11 @@
     border: 1px solid #279112;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
-  }
-  
-  .actions .toggle {
+}
+
+.actions .toggle {
     margin-top: 1rem;
     background-color: transparent;
     border: none;
     padding: 0.15rem 1.5rem;
-  }
-  
+}
