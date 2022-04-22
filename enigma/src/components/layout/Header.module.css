@@ -7,7 +7,7 @@
     background-color: #c0eca0;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 10%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -37,8 +37,8 @@
 
 .logout {
     font: inherit;
-    background-color: transparent;
-    border: 1px solid #89e49b;
+    background-color: #c7db0e;
+    border: 1px solid #c7db0e;
     color: white;
     font-weight: bold;
     padding: 0.5rem 1.5rem;
