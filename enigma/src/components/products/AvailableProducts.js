@@ -12,7 +12,7 @@ const AvailableProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             const response = await fetch(
-                'https://fresh-Products-prakalpshakya31-default-rtdb.firebaseio.com/Products.json'
+                'https://enigma-83e9e-default-rtdb.firebaseio.com/Products'
             );
 
             if (!response.ok) {
@@ -94,7 +94,7 @@ const AvailableProducts = () => {
                 <button onClick={() => filterItem('Seeds')}>Seeds</button>
             </div>
             <Card>
-                <ul>{productsList}</ul>
+                <ul>{productList}</ul>
             </Card>
         </section>
     );

@@ -3,6 +3,7 @@ import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
+import HeaderCartButton from './HeaderCartButton';
 
 const Header = (props) => {
     const authCtx = useContext(AuthContext);
@@ -32,6 +33,8 @@ const Header = (props) => {
                         )}
                     </li>
                 </ul>
+
+                <HeaderCartButton onClick={props.onShowCart} />
             </header>
         </React.Fragment>
     );
