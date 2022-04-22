@@ -24,8 +24,8 @@
 .products button {
     font: inherit;
     cursor: pointer;
-    background-color: #8a2b06;
-    border: 1px solid #8a2b06;
+    background-color: #e78067;
+    border: 1px solid #e78067;
     color: white;
     padding: 0.25rem 2rem;
     border-radius: 5%;
@@ -36,13 +36,15 @@
 }
 
 .filters {
+    display: flex;
+    padding: 1rem 0px;
     align-content: center;
 }
 
 .products button:hover,
 .products button:active {
-    background-color: #641e03;
-    border-color: #641e03;
+    background-color: #df4e45;
+    border-color: #df4e45;
 }
 
 @keyframes products-appear {
