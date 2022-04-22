@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ProductItem from './productItem/ProductItem';
 import Card from '../UI/Card';
-import classes from './AvailableMeals.module.css';
+import classes from './AvailableProducts.module.css';
 
 const AvailableProducts = () => {
     const [products, setProducts] = useState([]);
@@ -12,8 +12,10 @@ const AvailableProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             const response = await fetch(
-                'https://enigma-83e9e-default-rtdb.firebaseio.com/Products'
+                'https://enigma-83e9e-default-rtdb.firebaseio.com/Products.json'
             );
+
+            console.log(response);
 
             if (!response.ok) {
                 throw new Error('Something went wrong!');
