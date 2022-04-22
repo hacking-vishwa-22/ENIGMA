@@ -1,4 +1,4 @@
-import AuthForm from '../Auth/AuthForm';
+import AuthForm from '../auth/AuthForm';
 import Header from '../layout/Header';
 
 const AuthPage = () => {
