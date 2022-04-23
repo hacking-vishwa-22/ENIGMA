@@ -38,7 +38,8 @@
 .filters {
     display: flex;
     padding: 1rem 0px;
-    align-content: center;
+    justify-content: space-between;
+    /* align-content: center; */
 }
 
 .products button:hover,
