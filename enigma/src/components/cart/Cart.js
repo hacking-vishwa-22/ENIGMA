@@ -1,43 +1,43 @@
-import classes from './Cart.module.css';
-import Modal from '../UI/Modal';
-import { Fragment, useContext, useState } from 'react';
-import CartContext from '../../store/cart-context';
-import CartItem from './CartItem';
-import Checkout from './Checkout';
-import AuthContext from '../../store/auth-context';
-import { useHistory } from 'react-router';
+import classes from './Cart.module.css'
+import Modal from '../UI/Modal'
+import { Fragment, useContext, useState } from 'react'
+import CartContext from '../../store/cart-context'
+import CartItem from './CartItem'
+import Checkout from './Checkout'
+import AuthContext from '../../store/auth-context'
+import { useHistory } from 'react-router'
 
 const Cart = (props) => {
-  const [isCheckout, setIsCheckout] = useState(false);
-  const cartCtx = useContext(CartContext);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [didSubmit, setDidSubmit] = useState(false);
+  const [isCheckout, setIsCheckout] = useState(false)
+  const cartCtx = useContext(CartContext)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [didSubmit, setDidSubmit] = useState(false)
 
-  const history = useHistory();
+  const history = useHistory()
 
-  const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext)
 
-  const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
-  const hasItems = cartCtx.items.length > 0;
+  const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`
+  const hasItems = cartCtx.items.length > 0
 
   const cartItemRemoveHandler = (id) => {
-    cartCtx.removeItem(id);
-  };
+    cartCtx.removeItem(id)
+  }
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem({ ...item, amount: 1 });
-  };
+    cartCtx.addItem({ ...item, amount: 1 })
+  }
 
   const orderHandler = () => {
     if (!authCtx.isLoggedIn) {
-      history.replace('/auth');
-    } else setIsCheckout(true);
-  };
+      history.replace('/auth')
+    } else setIsCheckout(true)
+  }
 
   const submitOrderHandler = (userData) => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     fetch(
-      'https://enigma-83e9e-default-rtdb.firebaseio.com/orders',
+      'https://enigma-83e9e-default-rtdb.firebaseio.com/Orders.json',
       {
         method: 'POST',
         body: JSON.stringify({
@@ -45,11 +45,11 @@ const Cart = (props) => {
           orderedItems: cartCtx.items,
         }),
       }
-    );
-    setIsSubmitting(false);
-    setDidSubmit(true);
-    cartCtx.clearCart();
-  };
+    )
+    setIsSubmitting(false)
+    setDidSubmit(true)
+    cartCtx.clearCart()
+  }
 
   const cartItems = (
     <ul className={classes['cart-items']}>
@@ -67,7 +67,7 @@ const Cart = (props) => {
         />
       ))}
     </ul>
-  );
+  )
 
   const modalActions = (
     <div className={classes.actions}>
@@ -86,7 +86,7 @@ const Cart = (props) => {
         </button>
       )}
     </div>
-  );
+  )
 
   const cartModalContent = (
     <Fragment>
@@ -103,11 +103,11 @@ const Cart = (props) => {
       )}
       {!isCheckout && modalActions}
     </Fragment>
-  );
+  )
 
   const isSubmittingModalContent = (
     <p>Sending order data...</p>
-  );
+  )
 
   const didSubmitModalContent = (
     <Fragment>
@@ -121,14 +121,14 @@ const Cart = (props) => {
         </button>
       </div>
     </Fragment>
-  );
+  )
   return (
     <Modal onClose={props.onClose}>
       {!isSubmitting && !didSubmit && cartModalContent}
       {isSubmitting && isSubmittingModalContent}
       {!isSubmitting && didSubmit && didSubmitModalContent}
     </Modal>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart
