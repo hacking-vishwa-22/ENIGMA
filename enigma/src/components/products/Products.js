@@ -3,12 +3,12 @@ import Image from './Image';
 import ProductsSummary from './ProductsSummary';
 import AvailableProducts from './AvailableProducts';
 
-const Products = () => {
+const Products = (props) => {
     return (
         <div>
             <Image />
-            <ProductsSummary />
-            <AvailableProducts />
+            {props.showProductsSummary && <ProductsSummary />}
+            <AvailableProducts dbLink={props.dbLink} />
         </div>
     );
 };

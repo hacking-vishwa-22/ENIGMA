@@ -7,6 +7,9 @@ import CartProvider from '../../store/CartProvider';
 function HomePage() {
     const [cartIsShown, setCartIsShown] = useState(false);
 
+    const databaseLink =
+        'https://enigma-83e9e-default-rtdb.firebaseio.com/Products.json';
+
     const showCartHandler = () => {
         setCartIsShown(true);
     };
@@ -20,7 +23,7 @@ function HomePage() {
             {cartIsShown && <Cart onClose={hideCartHandler} />}
             <Header onShowCart={showCartHandler} />
             <main>
-                <Products />
+                <Products dbLink={databaseLink} showProductsSummary />
             </main>
         </CartProvider>
     );
