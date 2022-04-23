@@ -3,17 +3,16 @@ import ProductItem from './productItem/ProductItem';
 import Card from '../UI/Card';
 import classes from './AvailableProducts.module.css';
 
-const AvailableProducts = () => {
+const AvailableProducts = (props) => {
     const [products, setProducts] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [httpError, setHttpError] = useState(null);
+    const dbLink = props.dbLink;
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await fetch(
-                'https://enigma-83e9e-default-rtdb.firebaseio.com/Products.json'
-            );
+            const response = await fetch(dbLink);
 
             console.log(response);
 

@@ -1,9 +1,8 @@
-import React from 'react';
-import classes from './Header.module.css';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 import HeaderCartButton from './HeaderCartButton';
+import classes from './Header.module.css';
 
 const Header = (props) => {
     const authCtx = useContext(AuthContext);
@@ -37,6 +36,13 @@ const Header = (props) => {
                                 <div>LOGOUT</div>
                             </button>
                         )}
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <Link to='/market' className={classes.badge}>
+                            MARKETPLACE
+                        </Link>
                     </li>
                 </ul>
 
