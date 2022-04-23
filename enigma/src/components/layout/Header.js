@@ -21,14 +21,20 @@ const Header = (props) => {
                     <div className={classes.logo}>Krishi Vyapar</div>
                 </Link>
                 <ul>
-                    <li>{!isLoggedIn && <Link to='/auth'>Login</Link>}</li>
+                    <li>
+                        {!isLoggedIn && (
+                            <Link to='/auth' className={classes.badge}>
+                                LOGIN
+                            </Link>
+                        )}
+                    </li>
                     <li>
                         {isLoggedIn && (
                             <button
                                 onClick={logoutHandler}
                                 className={classes.logout}
                             >
-                                <div>Logout</div>
+                                <div>LOGOUT</div>
                             </button>
                         )}
                     </li>
