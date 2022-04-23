@@ -10,6 +10,14 @@ function HomePage() {
     const databaseLink =
         'https://enigma-83e9e-default-rtdb.firebaseio.com/Products.json';
 
+    const filters = [
+        'All',
+        'Farm Equipments',
+        'Fertilizers',
+        'Pesticides',
+        'Seeds',
+    ];
+
     const showCartHandler = () => {
         setCartIsShown(true);
     };
@@ -23,7 +31,11 @@ function HomePage() {
             {cartIsShown && <Cart onClose={hideCartHandler} />}
             <Header onShowCart={showCartHandler} />
             <main>
-                <Products dbLink={databaseLink} showProductsSummary />
+                <Products
+                    dbLink={databaseLink}
+                    filters={filters}
+                    showProductsSummary
+                />
             </main>
         </CartProvider>
     );

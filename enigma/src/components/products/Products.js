@@ -8,7 +8,7 @@ const Products = (props) => {
         <div>
             <Image />
             {props.showProductsSummary && <ProductsSummary />}
-            <AvailableProducts dbLink={props.dbLink} />
+            <AvailableProducts dbLink={props.dbLink} filters={props.filters} />
         </div>
     );
 };

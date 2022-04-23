@@ -9,6 +9,7 @@ const AvailableProducts = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [httpError, setHttpError] = useState(null);
     const dbLink = props.dbLink;
+    const filters = props.filters;
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -62,7 +63,7 @@ const AvailableProducts = (props) => {
     const filterItem = (categoryItem) => {
         const updatedItems = allProducts.filter((currElement) => {
             return (
-                categoryItem === 'all' || currElement.category === categoryItem
+                categoryItem === 'All' || currElement.category === categoryItem
             );
         });
 
@@ -79,10 +80,19 @@ const AvailableProducts = (props) => {
         />
     ));
 
+    const buttonList = filters.map((filter, i) => (
+        <button key={i} onClick={() => filterItem(filter)}>
+            {filter}
+        </button>
+    ));
+
+    console.log(buttonList);
+
     return (
         <section className={classes.products}>
             <div className={classes.filters}>
-                <button onClick={() => filterItem('all')}>All</button>
+                {buttonList}
+                {/* <button onClick={() => filterItem('all')}>All</button>
                 <button onClick={() => filterItem('Farm Equipments')}>
                     Farm Equipments
                 </button>
@@ -92,7 +102,7 @@ const AvailableProducts = (props) => {
                 <button onClick={() => filterItem('Pesticides')}>
                     Pesticides
                 </button>
-                <button onClick={() => filterItem('Seeds')}>Seeds</button>
+                <button onClick={() => filterItem('Seeds')}>Seeds</button> */}
             </div>
             <Card>
                 <ul>{productList}</ul>
