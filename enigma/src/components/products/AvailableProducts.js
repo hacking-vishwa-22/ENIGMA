@@ -42,7 +42,7 @@ const AvailableProducts = (props) => {
             setIsLoading(false);
             setHttpError(error.message);
         });
-    }, []);
+    }, [dbLink]);
 
     if (isLoading) {
         return (
